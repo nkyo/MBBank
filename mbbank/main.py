@@ -69,6 +69,7 @@ class MBBank:
             else:
                 err_out = data_out["result"]
                 raise Exception(f"{err_out['responseCode']} | {err_out['message']}")
+            
         return data_out
 
     def authenticate(self):
@@ -171,6 +172,11 @@ class MBBank:
         data_out = self._req("https://online.mbbank.com.vn/api/retail_web/loan/getList")
         return data_out
 
+    #get session id and device id
+    # return both session id and device id
+    def getDeviceIdSessionId(self):
+        return self.deviceIdCommon, self.sessionId
+    
     def getCardTransactionHistory(self, cardNo:str, from_date: datetime.datetime, to_date: datetime.datetime):
         json_data = {
           "accountNo": cardNo,
@@ -181,6 +187,8 @@ class MBBank:
           "type": "CARD",
         }
         data_out = self._req("https://online.mbbank.com.vn/api/retail_web/common/getTransactionHistory", json=json_data)
+        #return header, data_out
+        
         return data_out
 
     def userinfo(self):
