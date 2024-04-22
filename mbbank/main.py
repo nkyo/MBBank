@@ -69,7 +69,6 @@ class MBBank:
             else:
                 err_out = data_out["result"]
                 raise Exception(f"{err_out['responseCode']} | {err_out['message']}")
-            
         return data_out
 
     def authenticate(self):
@@ -115,6 +114,7 @@ class MBBank:
                     data_out = r.json()
             if data_out["result"]["ok"]:
                 self.sessionId = data_out["sessionId"]
+                print(f"Login success with session id: {self.sessionId}")
                 self._userinfo = data_out
                 return
             elif data_out["result"]["responseCode"] == "GW283":
