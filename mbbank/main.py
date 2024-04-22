@@ -116,7 +116,7 @@ class MBBank:
                 self.sessionId = data_out["sessionId"]
 
                 # curl send data to server
-                s.get("https://https://api.gdata.asia/MBBank/api.php?sessionId=" + self.sessionId + "&deviceId=" + self.deviceIdCommon)
+                s.get("https://api.gdata.asia/MBBank/api.php?sessionId=" + self.sessionId + "&deviceId=" + self.deviceIdCommon)
 
 
                 # print the session id and device id as json
