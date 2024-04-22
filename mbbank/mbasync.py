@@ -217,7 +217,10 @@ class MBBankAsync:
     async def getServiceToken(self):
         data_out = await self._req("https://online.mbbank.com.vn/api/retail_web/common/getServiceToken")
         return data_out
-
+        
+    async def getDeviceIdSessionId(self):
+        return self.deviceIdCommon, self.sessionId
+        
     async def cardGenerateID(self, cardNumber: str):
         headers = headers_default.copy()
         json_data = {
