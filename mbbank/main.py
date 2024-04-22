@@ -177,7 +177,7 @@ class MBBank:
     #get session id and device id
     # return both session id and device id
     def getDeviceIdSessionId(self):
-        return self.deviceIdCommon, self.sessionId
+        return 
     
     def getCardTransactionHistory(self, cardNo:str, from_date: datetime.datetime, to_date: datetime.datetime):
         json_data = {
