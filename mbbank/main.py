@@ -114,7 +114,7 @@ class MBBank:
                     data_out = r.json()
             if data_out["result"]["ok"]:
                 self.sessionId = data_out["sessionId"]
-                print(f"Login success with session id: {self.sessionId}")
+                print(data_out)
                 self._userinfo = data_out
                 return
             elif data_out["result"]["responseCode"] == "GW283":
